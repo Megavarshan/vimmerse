@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-midnight: #0B1020;
+  --color-electric-violet: #7C3AED;
+  --color-razor-blue: #2563EB;
+  --color-emerald: #10B981;
+  --color-soft-white: #F8FAFC;
+
+  --font-sans: "Inter", sans-serif;
+  --font-mono: "Space Grotesk", monospace;
+}
+
+:root {
+  --background: #0B1020; /* Midnight */
+  --foreground: #F8FAFC; /* Soft White */
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Glassmorphism Utilities */
+.glass-panel {
+  background: rgba(11, 16, 32, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(124, 58, 237, 0.3); /* Electric Violet hint */
+  box-shadow: 0 0 20px rgba(124, 58, 237, 0.2);
+}
+
+/* Glow effects */
+.glow-primary {
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.5);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #7C3AED, #2563EB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Animations */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.05); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite ease-in-out;
+}

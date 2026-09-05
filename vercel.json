@@ -1,5 +1,0 @@
-{
-  "buildCommand": "cd vimmerse-web && npm run build",
-  "outputDirectory": "vimmerse-web/.next",
-  "framework": "nextjs"
-}

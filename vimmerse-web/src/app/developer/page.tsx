@@ -1,6 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
-import Script from "next/script";
+import React from "react";
 import { PageLayout } from "@/components/layout/PageLayout";
 import { Badge } from "@/components/ui/Badge";
 import {
@@ -10,19 +9,8 @@ import {
 } from "lucide-react";
 
 export default function DeveloperPage() {
-  // Re-trigger LinkedIn badging script if needed after dynamic routing
-  useEffect(() => {
-    if (typeof window !== "undefined" && (window as any).IN?.parse) {
-      (window as any).IN.parse();
-    }
-  }, []);
-
   return (
     <PageLayout>
-      <Script
-        src="https://platform.linkedin.com/badges/js/profile.js"
-        strategy="lazyOnload"
-      />
 
       <div className="flex flex-col space-y-8 max-w-6xl mx-auto w-full relative z-10 py-2">
 
@@ -134,66 +122,69 @@ export default function DeveloperPage() {
               </div>
             </div>
 
-            {/* ── Official LinkedIn Badge Embed ────────────────────── */}
+            {/* ── Developer Telemetry & Profile Card ───────────────── */}
             <div className="lg:col-span-5 space-y-4">
-              <div className="p-4 rounded-2xl bg-[#0b0e17] border border-white/[0.1] shadow-xl space-y-3">
-                <div className="flex items-center justify-between border-b border-white/[0.08] pb-2 font-mono text-xs text-zinc-400">
-                  <span className="flex items-center gap-1.5 text-blue-400 font-semibold">
-                    <svg className="w-3.5 h-3.5 fill-current text-blue-400" viewBox="0 0 24 24">
-                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.65 1.65 0 0 0 1.65-1.66 1.65 1.65 0 0 0-1.65-1.66Z" />
-                    </svg>
-                    Official Verified Profile
+              <div className="p-5 rounded-2xl bg-[#0b0e17] border border-white/[0.1] shadow-xl space-y-4 font-mono text-xs">
+                <div className="flex items-center justify-between border-b border-white/[0.08] pb-3 text-zinc-400">
+                  <span className="flex items-center gap-2 text-violet-400 font-bold">
+                    <Terminal size={15} /> engineer.profile.json
                   </span>
-                  <span className="text-[10px] text-emerald-400">SYNCED</span>
+                  <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20">
+                    VERIFIED
+                  </span>
                 </div>
 
-                {/* The User's Exact LinkedIn Embed Container */}
-                <div className="flex justify-center p-2 overflow-hidden bg-white/5 rounded-xl border border-white/5">
-                  <div
-                    className="badge-base LI-profile-badge"
-                    data-locale="en_US"
-                    data-size="large"
-                    data-theme="dark"
-                    data-type="HORIZONTAL"
-                    data-vanity="megavarshan"
-                    data-version="v1"
-                  >
-                    <a
-                      className="badge-base__link LI-simple-link text-xs font-mono text-violet-400 hover:underline"
-                      href="https://in.linkedin.com/in/megavarshan?trk=profile-badge"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      Megavarshan A (LinkedIn Profile)
-                    </a>
-                  </div>
-                </div>
-
-                {/* Quick Credentials Summary */}
-                <div className="p-3 rounded-xl bg-black/40 border border-white/[0.06] font-mono text-[11px] space-y-1.5">
-                  <div className="flex justify-between">
-                    <span className="text-zinc-500">Name:</span>
+                <div className="space-y-2.5 text-xs">
+                  <div className="flex justify-between items-center">
+                    <span className="text-zinc-500">ENGINEER:</span>
                     <span className="text-white font-semibold">Mega Varshan</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-zinc-500">Role:</span>
-                    <span className="text-cyan-300">AI Research Engineer</span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-zinc-500">ROLE:</span>
+                    <span className="text-cyan-300 font-medium">AI Research Engineer</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-zinc-500">Portfolio:</span>
-                    <a
-                      href="https://megavarshan.vercel.app/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-amber-400 hover:text-amber-300 underline flex items-center gap-1"
-                    >
-                      megavarshan.vercel.app <ExternalLink size={10} />
-                    </a>
+                  <div className="flex justify-between items-center">
+                    <span className="text-zinc-500">DOMAIN:</span>
+                    <span className="text-violet-300">ML, Data Systems & Cloud</span>
                   </div>
-                  <div className="flex justify-between">
-                    <span className="text-zinc-500">Hackathon:</span>
-                    <span className="text-violet-300">Razorpay AI Buildathon 2026</span>
+                  <div className="flex justify-between items-center">
+                    <span className="text-zinc-500">COGNITION CORE:</span>
+                    <span className="text-emerald-300">PRISM L1-L6 (LangGraph)</span>
                   </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-zinc-500">PAYMENT ENGINE:</span>
+                    <span className="text-blue-300">Razorpay Rails</span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-zinc-500">BUILDATHON:</span>
+                    <span className="text-amber-300">Razorpay AI 2026</span>
+                  </div>
+                </div>
+
+                <div className="pt-3 border-t border-white/[0.08] flex flex-col gap-2">
+                  <a
+                    href="https://megavarshan.vercel.app/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2.5 px-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold flex items-center justify-center gap-2 shadow-[0_0_15px_rgba(139,92,246,0.35)] transition-all cursor-pointer"
+                  >
+                    <Globe size={13} />
+                    <span>Visit Portfolio: megavarshan.vercel.app</span>
+                    <ExternalLink size={12} />
+                  </a>
+
+                  <a
+                    href="https://in.linkedin.com/in/megavarshan"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full py-2 px-3 rounded-xl bg-[#0077b5]/15 hover:bg-[#0077b5]/25 text-blue-300 hover:text-blue-200 border border-[#0077b5]/30 flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  >
+                    <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                      <path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.2V10.9H6.46M7.83 6.64a1.65 1.65 0 0 0-1.66 1.66 1.66 1.66 0 0 0 1.66 1.66 1.65 1.65 0 0 0 1.65-1.66 1.65 1.65 0 0 0-1.65-1.66Z" />
+                    </svg>
+                    <span>LinkedIn Profile: in/megavarshan</span>
+                    <ExternalLink size={12} />
+                  </a>
                 </div>
               </div>
             </div>

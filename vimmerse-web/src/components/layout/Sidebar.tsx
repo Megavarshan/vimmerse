@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { LayoutDashboard, Radio, Network, BarChart3, Clock, Sparkles, ArrowUpRight } from 'lucide-react';
+import { LayoutDashboard, Radio, Network, BarChart3, Clock, Sparkles, ArrowUpRight, UserCheck } from 'lucide-react';
 
 const navItems = [
   { name: 'Merchant Brain', href: '/dashboard', icon: LayoutDashboard, badge: 'Live' },
@@ -10,6 +10,7 @@ const navItems = [
   { name: 'Knowledge Graph', href: '/graph', icon: Network, badge: 'Neo4j' },
   { name: 'Decision Explorer', href: '/decisions', icon: Clock, badge: 'Audit' },
   { name: 'Analytics & Sim', href: '/analytics', icon: BarChart3, badge: 'What-If' },
+  { name: 'About Developer', href: '/developer', icon: UserCheck, badge: 'Creator' },
 ];
 
 export function Sidebar() {
@@ -78,15 +79,13 @@ export function Sidebar() {
             AI Research Engineer • ML, Data & Cloud
           </p>
         </div>
-        <a
-          href="https://megavarshan.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer"
+        <Link
+          href="/developer"
           className="w-full py-1.5 px-2 rounded bg-violet-600/20 hover:bg-violet-600/40 text-violet-300 hover:text-white border border-violet-500/30 text-[10px] font-mono font-semibold flex items-center justify-center gap-1 transition-all"
         >
-          <span>Portfolio</span>
+          <span>View Profile & Bio</span>
           <ArrowUpRight size={11} />
-        </a>
+        </Link>
       </div>
 
       {/* Footer System Diagnostics */}

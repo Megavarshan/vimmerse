@@ -56,10 +56,8 @@ export function Navbar() {
 
         {/* ── DEVELOPER PROFILE BAR ─────────────────────────── */}
         <div className="relative group">
-          <a
-            href="https://megavarshan.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/developer"
             className="flex items-center gap-2 px-2.5 py-1 rounded-md bg-zinc-900/90 border border-violet-500/30 hover:border-violet-500 text-zinc-200 transition-all text-[11px] shadow-sm group-hover:bg-zinc-800"
           >
             <div className="h-4 w-4 rounded-full bg-gradient-to-tr from-violet-600 to-cyan-400 flex items-center justify-center text-[9px] font-bold text-white shrink-0 shadow-sm">
@@ -70,11 +68,11 @@ export function Navbar() {
               <span className="text-[9px] text-violet-300 hidden md:inline">• AI Research Engineer</span>
             </div>
             <ArrowUpRight size={12} className="text-violet-400 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-          </a>
+          </Link>
 
           {/* Hover Card / Tooltip details */}
           <div className="absolute right-0 top-full mt-2 w-72 p-3.5 rounded-xl bg-[#0e111a] border border-violet-500/30 shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 pointer-events-auto">
-            <div className="space-y-2 text-xs font-sans">
+            <div className="space-y-2.5 text-xs font-sans">
               <div className="flex items-center justify-between border-b border-white/10 pb-2">
                 <div>
                   <h4 className="font-bold text-white text-sm">Mega Varshan</h4>
@@ -87,15 +85,24 @@ export function Navbar() {
               <p className="text-[11px] text-zinc-300 leading-relaxed">
                 Expertise across Machine Learning, Big Data architectures, and Cloud Technologies. Architect of Vimmerse PRISM Cognitive Commerce Core.
               </p>
-              <a
-                href="https://megavarshan.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-full mt-1.5 py-1.5 px-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white font-mono text-[11px] font-semibold flex items-center justify-center gap-1.5 transition-colors"
-              >
-                <span>Visit megavarshan.vercel.app</span>
-                <ArrowUpRight size={12} />
-              </a>
+              <div className="pt-1 flex flex-col gap-1.5">
+                <Link
+                  href="/developer"
+                  className="w-full py-1.5 px-2.5 rounded-lg bg-violet-600 hover:bg-violet-500 text-white font-mono text-[11px] font-semibold flex items-center justify-center gap-1.5 transition-colors"
+                >
+                  <span>Open Developer Bio & Badge</span>
+                  <ArrowUpRight size={12} />
+                </Link>
+                <a
+                  href="https://megavarshan.vercel.app/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-1.5 px-2.5 rounded-lg bg-white/[0.04] hover:bg-white/[0.08] text-zinc-300 hover:text-white border border-white/[0.08] font-mono text-[11px] flex items-center justify-center gap-1.5 transition-colors"
+                >
+                  <span>megavarshan.vercel.app</span>
+                  <ArrowUpRight size={12} />
+                </a>
+              </div>
             </div>
           </div>
         </div>

@@ -6,16 +6,16 @@ const Card = React.forwardRef<
   React.HTMLAttributes<HTMLDivElement> & { variant?: 'default' | 'glass' | 'glow' }
 >(({ className, variant = 'default', ...props }, ref) => {
   const variantClasses = {
-    default: "bg-card text-card-foreground shadow-sm",
-    glass: "glass-card",
-    glow: "bg-card text-card-foreground shadow-sm hover:shadow-[0_0_15px_rgba(124,58,237,0.5)] transition-shadow duration-300",
+    default: "bg-[#0d1017] border-white/[0.07] text-zinc-100",
+    glass: "bg-[#0d1017]/80 backdrop-blur-md border-white/[0.07] text-zinc-100",
+    glow: "bg-[#0d1017] border-violet-500/30 text-zinc-100 shadow-[0_0_20px_rgba(139,92,246,0.15)]",
   }
 
   return (
     <div
       ref={ref}
       className={cn(
-        "rounded-xl border bg-card text-card-foreground shadow",
+        "rounded-xl border shadow-sm transition-all",
         variantClasses[variant],
         className
       )}

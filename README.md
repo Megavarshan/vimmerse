@@ -62,33 +62,6 @@ Every customer interaction is processed deterministically through 6 layers:
 * **Backend**: FastAPI (Python 3.11+), LangGraph Multi-Agent State Machine.
 * **Inference**: Groq Cloud (Llama-3.3-70b-versatile with deterministic JSON schema mode).
 * **Payment Rails**: Razorpay Orders API, Checkout.js, and Webhooks.
-
----
-
-## ⚡ Quickstart
-
-### 1. Backend Engine
-```bash
-cd vimmerse-engine
-python -m venv .venv
-
-# Activate:
-.\.venv\Scripts\activate   # Windows
-source .venv/bin/activate  # macOS / Linux
-
-pip install -r requirements.txt
-python -m uvicorn main:app --port 8000
-```
-API runs on: `http://localhost:8000` (Docs: `http://localhost:8000/docs`)
-
-### 2. Frontend Web App
-```bash
-cd vimmerse-web
-npm install
-npm run dev
-```
-Open: [http://localhost:3000](http://localhost:3000)
-
 ---
 
 ## 👨‍💻 Developer & Author
